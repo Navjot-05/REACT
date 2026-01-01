@@ -15,7 +15,7 @@ export default function Projects() {
     {
       title: 'E-Commerce Platform',
       description: 'A full-featured e-commerce platform with product filtering, shopping cart, and checkout flow.',
-      image: '/images/code-pattern.png',
+      image: '/images/ecommerce.png',
       technologies: ['React', 'Tailwind CSS', 'JavaScript', 'Redux'],
       link: '#',
       github: '#',
@@ -24,7 +24,7 @@ export default function Projects() {
     {
       title: 'Task Management App',
       description: 'Collaborative task management application with real-time updates and team features.',
-      image: '/images/code-pattern.png',
+      image: '/images/taskmanager.png',
       technologies: ['React', 'Firebase', 'Tailwind CSS', 'Framer Motion'],
       link: '#',
       github: '#',
@@ -42,7 +42,7 @@ export default function Projects() {
     {
       title: 'Weather Dashboard',
       description: 'Real-time weather application with location search and detailed forecasts.',
-      image: '/images/code-pattern.png',
+      image: '/images/weather.png',
       technologies: ['React', 'API Integration', 'Tailwind CSS'],
       link: '#',
       github: '#',
@@ -50,7 +50,7 @@ export default function Projects() {
     {
       title: 'Blog Platform',
       description: 'Content management system for creating and sharing blog posts with rich text editing.',
-      image: '/images/code-pattern.png',
+      image: '/images/blog.png',
       technologies: ['React', 'JavaScript', 'Tailwind CSS', 'Markdown'],
       link: '#',
       github: '#',
@@ -58,7 +58,7 @@ export default function Projects() {
     {
       title: 'Social Media Dashboard',
       description: 'Analytics dashboard for managing multiple social media accounts and metrics.',
-      image: '/images/code-pattern.png',
+      image: '/images/socialmedia.png',
       technologies: ['React', 'Chart.js', 'Tailwind CSS', 'Git'],
       link: '#',
       github: '#',
@@ -117,18 +117,18 @@ export default function Projects() {
               key={project.title}
               variants={cardVariants}
               whileHover={{ y: -8 }}
-              className="group relative h-full"
+              className="group relative  h-full"
             >
               {/* Card Container */}
               <div className="relative h-full rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm overflow-hidden hover-lift">
                 {/* Image */}
-                <div className="relative h-48 overflow-hidden bg-gradient-to-br from-primary/20 to-accent/20">
+                <div className="relative h-75 overflow-hidden bg-linear-to-br from-primary/20 to-accent/20">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-fill group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-card via-transparent to-transparent" />
                 </div>
 
                 {/* Content */}

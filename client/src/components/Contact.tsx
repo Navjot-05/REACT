@@ -1,7 +1,9 @@
-import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { useState } from 'react';
+import { motion } from "framer-motion";
+import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 
 /**
  * Contact Component
@@ -13,30 +15,30 @@ import { useState } from 'react';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    email: "",
+    message: "",
   });
   const [submitted, setSubmitted] = useState(false);
 
   const contactInfo = [
     {
       icon: Mail,
-      label: 'Email',
-      value: 'navjot@example.com',
-      href: 'mailto:navjot@example.com',
+      label: "Email",
+      value: "navthind0903@gmail.com",
+      href: "mailto:navthind0903@gmail.com",
     },
     {
       icon: Phone,
-      label: 'Phone',
-      value: '+1 (555) 123-4567',
-      href: 'tel:+15551234567',
+      label: "Phone",
+      value: "+91 8209404143",
+      href: "tel:+91 8209404143",
     },
     {
       icon: MapPin,
-      label: 'Location',
-      value: 'San Francisco, CA',
-      href: '#',
+      label: "Location",
+      value: "Kesarisinghpur,SGNR",
+      href: "https://maps.app.goo.gl/t98zTNLVaVG2MmT97",
     },
   ];
 
@@ -60,18 +62,20 @@ export default function Contact() {
     },
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Simulate form submission
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
     setSubmitted(true);
     setTimeout(() => {
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ name: "", email: "", message: "" });
       setSubmitted(false);
     }, 3000);
   };
@@ -91,7 +95,8 @@ export default function Contact() {
             Let's <span className="gradient-text">Connect</span>
           </h2>
           <p className="text-xl text-foreground/60 max-w-2xl mx-auto">
-            Have a project in mind or want to collaborate? I'd love to hear from you. Let's create something amazing together.
+            Have a project in mind or want to collaborate? I'd love to hear from
+            you. Let's create something amazing together.
           </p>
         </motion.div>
 
@@ -103,11 +108,13 @@ export default function Contact() {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold mb-8 text-foreground">Get in Touch</h3>
+            <h3 className="text-2xl font-bold mb-8 text-foreground">
+              Get in Touch
+            </h3>
 
             {/* Contact Cards */}
             <div className="space-y-6 mb-12">
-              {contactInfo.map((info) => {
+              {contactInfo.map(info => {
                 const Icon = info.icon;
                 return (
                   <motion.a
@@ -121,7 +128,9 @@ export default function Contact() {
                       <Icon size={24} className="text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm text-foreground/60 mb-1">{info.label}</p>
+                      <p className="text-sm text-foreground/60 mb-1">
+                        {info.label}
+                      </p>
                       <p className="text-foreground font-semibold group-hover:text-primary transition-colors">
                         {info.value}
                       </p>
@@ -133,25 +142,42 @@ export default function Contact() {
 
             {/* Social Links */}
             <motion.div variants={itemVariants}>
-              <h4 className="text-lg font-semibold mb-4 text-foreground">Follow Me</h4>
+              <h4 className="text-lg font-semibold mb-4 text-foreground">
+                Follow Me
+              </h4>
               <div className="flex gap-4">
-                {[
-                  { name: 'GitHub', icon: '🐙' },
-                  { name: 'LinkedIn', icon: '💼' },
-                  { name: 'Twitter', icon: '𝕏' },
-                ].map((social) => (
-                  <motion.a
-                    key={social.name}
-                    href="#"
-                    whileHover={{ scale: 1.1, y: -5 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="w-12 h-12 rounded-lg border border-border/50 bg-card/50 hover:bg-card/80 flex items-center justify-center text-xl hover-glow transition-all duration-300"
-                    aria-label={social.name}
-                  >
-                    {social.icon}
-                  </motion.a>
-                ))}
-              </div>
+  {[
+    {
+      name: "GitHub",
+      href: "https://github.com/Navjot-05",
+      icon: <FaGithub />,
+    },
+    {
+      name: "LinkedIn",
+      href: "https://www.linkedin.com/in/navjot-singh-a99446399?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      icon: <FaLinkedin />,
+    },
+    {
+      name: "Twitter",
+      href: "mailto:navthind0903@gmail.com",
+      icon: <MdEmail />,
+    },
+  ].map((social) => (
+    <motion.a
+      key={social.name}
+      href={social.href}           // <-- use the actual link
+      target="_blank"              // <-- open in new tab
+      rel="noopener noreferrer"    // <-- security
+      whileHover={{ scale: 1.1, y: -5 }}
+      whileTap={{ scale: 0.95 }}
+      className="w-12 h-12 rounded-lg border border-border/50 bg-card/50 hover:bg-card/80 flex items-center justify-center text-xl hover-glow transition-all duration-300"
+      aria-label={social.name}
+    >
+      {social.icon}
+    </motion.a>
+  ))}
+</div>
+
             </motion.div>
           </motion.div>
 
@@ -165,7 +191,10 @@ export default function Contact() {
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Name Input */}
               <motion.div whileHover={{ scale: 1.02 }} className="relative">
-                <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-foreground mb-2"
+                >
                   Your Name
                 </label>
                 <input
@@ -182,7 +211,10 @@ export default function Contact() {
 
               {/* Email Input */}
               <motion.div whileHover={{ scale: 1.02 }} className="relative">
-                <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-foreground mb-2"
+                >
                   Your Email
                 </label>
                 <input
@@ -199,7 +231,10 @@ export default function Contact() {
 
               {/* Message Input */}
               <motion.div whileHover={{ scale: 1.02 }} className="relative">
-                <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-foreground mb-2"
+                >
                   Message
                 </label>
                 <textarea
@@ -225,8 +260,11 @@ export default function Contact() {
                   className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold group"
                   disabled={submitted}
                 >
-                  {submitted ? 'Message Sent! ✓' : 'Send Message'}
-                  <Send className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
+                  {submitted ? "Message Sent! ✓" : "Send Message"}
+                  <Send
+                    className="ml-2 group-hover:translate-x-1 transition-transform"
+                    size={20}
+                  />
                 </Button>
               </motion.div>
 

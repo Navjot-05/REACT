@@ -1,15 +1,8 @@
-import { motion } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { motion } from 'framer-motion'; 
+import { Menu, X, Download } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-
-/**
- * Navigation Component
- * Design: Modern Minimalist with Interactive Depth
- * - Smooth scroll-triggered animations
- * - Floating navigation with glassmorphic effect
- * - Responsive mobile menu
- */
+import { toast } from 'sonner';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,6 +35,10 @@ export default function Navigation() {
     },
   };
 
+  const handleDownload = () => {
+    toast.success("Downloading CV…");
+  };
+
   return (
     <motion.nav
       initial={{ opacity: 0, y: -50 }}
@@ -50,6 +47,7 @@ export default function Navigation() {
       className="fixed top-0 w-full z-50 backdrop-blur-md bg-background/80 border-b border-border/50"
     >
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+
         {/* Logo */}
         <motion.div
           whileHover={{ scale: 1.05 }}
@@ -58,7 +56,7 @@ export default function Navigation() {
           NS
         </motion.div>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Nav */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -78,19 +76,43 @@ export default function Navigation() {
           ))}
         </motion.div>
 
-        {/* CTA Button */}
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="hidden md:block"
-        >
-          <Button
-            className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+        {/* CTA Buttons */}
+        <div className="hidden md:flex items-center gap-4">
+          
+          {/* Get In Touch Button */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
-            Get in Touch
-          </Button>
-        </motion.div>
+            <Button
+              className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
+              onClick={() =>
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+              }
+            >
+              Get in Touch
+            </Button>
+          </motion.div>
+
+          {/* Download CV Button */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <a
+              href="/Navjot-Singh-CV.pdf"
+              download="Navjot-Singh-CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={handleDownload}
+            >
+              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold flex items-center gap-2">
+                <Download size={18} />
+                Download My CV
+              </Button>
+            </a>
+          </motion.div>
+        </div>
 
         {/* Mobile Menu Button */}
         <motion.button
@@ -110,6 +132,7 @@ export default function Navigation() {
         className="md:hidden overflow-hidden bg-card border-t border-border/50"
       >
         <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
+
           {navItems.map((item) => (
             <motion.a
               key={item.label}
@@ -121,15 +144,36 @@ export default function Navigation() {
               {item.label}
             </motion.a>
           ))}
-          <Button
-            className="bg-accent hover:bg-accent/90 text-accent-foreground w-full mt-2"
-            onClick={() => {
-              setIsOpen(false);
-              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-            }}
-          >
-            Get in Touch
-          </Button>
+
+          {/* Mobile Get in Touch */}
+          <motion.div whileTap={{ scale: 0.97 }}>
+            <Button
+              className="bg-accent hover:bg-accent/90 text-accent-foreground w-full mt-2"
+              onClick={() => {
+                setIsOpen(false);
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              Get in Touch
+            </Button>
+          </motion.div>
+
+          {/* Mobile Download */}
+          <motion.div whileTap={{ scale: 0.97 }}>
+            <a
+              href="/Navjot_Singh_CV.pdf"
+              download="Navjot-Singh-CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={handleDownload}
+            >
+              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground w-full mt-2 flex items-center gap-2">
+                <Download size={18} />
+                Download My CV
+              </Button>
+            </a>
+          </motion.div>
+
         </div>
       </motion.div>
     </motion.nav>

@@ -32,9 +32,9 @@ export default function Hero() {
   };
 
   const socialLinks = [
-    { icon: Github, href: '#', label: 'GitHub' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Mail, href: '#', label: 'Email' },
+    { icon: Github, href: 'https://github.com/Navjot-05', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/navjot-singh-a99446399?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', label: 'LinkedIn' },
+    { icon: Mail, href: 'mailto:navthind0903@gmail.com', label: 'Email' },
   ];
 
   return (
@@ -53,7 +53,7 @@ export default function Hero() {
       />
 
       {/* Overlay Gradient */}
-      <div className="absolute inset-0 z-1 bg-gradient-to-b from-background/40 via-background/60 to-background" />
+      <div className="absolute inset-0 z-1 bg-linear-to-b from-background/40 via-background/60 to-background" />
 
       {/* Content */}
       <motion.div

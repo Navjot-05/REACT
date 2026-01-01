@@ -11,9 +11,9 @@ import { Github, Linkedin, Mail, ArrowUp } from 'lucide-react';
 
 export default function Footer() {
   const socialLinks = [
-    { icon: Github, href: '#', label: 'GitHub' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Mail, href: '#', label: 'Email' },
+    { icon: Github, href: 'https://github.com/Navjot-05', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/navjot-singh-a99446399?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', label: 'LinkedIn' },
+    { icon: Mail, href: 'mailto:navthind0903@gmail.com', label: 'Email' },
   ];
 
   const scrollToTop = () => {
@@ -101,7 +101,7 @@ export default function Footer() {
           whileInView={{ opacity: 1, scaleX: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="my-8 h-px bg-gradient-to-r from-transparent via-border to-transparent"
+          className="my-8 h-px bg-linear-to-r from-transparent via-border to-transparent"
         />
 
         {/* Bottom Section */}

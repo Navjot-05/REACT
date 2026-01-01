@@ -97,14 +97,14 @@ export default function Skills() {
                 className="group relative"
               >
                 {/* Card Background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-linear-to-br from-primary/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                 {/* Card Content */}
                 <div className="relative p-8 rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm hover-lift">
                   {/* Icon */}
                   <motion.div
                     whileHover={{ rotate: 10, scale: 1.1 }}
-                    className="mb-6 inline-block p-3 rounded-lg bg-gradient-to-br from-primary/20 to-accent/20"
+                    className="mb-6 inline-block p-3 rounded-lg bg-linear-to-br from-primary/20 to-accent/20"
                   >
                     <Icon size={32} className="text-primary" />
                   </motion.div>
@@ -168,7 +168,7 @@ export default function Skills() {
                   whileInView={{ width: `${skill.level}%` }}
                   transition={{ duration: 1, delay: 0.2 }}
                   viewport={{ once: true }}
-                  className="h-full bg-gradient-to-r from-primary to-accent rounded-full"
+                  className="h-full bg-linear-to-r from-primary to-accent rounded-full"
                 />
               </div>
             </motion.div>
