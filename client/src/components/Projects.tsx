@@ -58,7 +58,7 @@ export default function Projects() {
     {
       title: 'Social Media Dashboard',
       description: 'Analytics dashboard for managing multiple social media accounts and metrics.',
-      image: '/images/socialmedia.png',
+      image: '/images/social.png',
       technologies: ['React', 'Chart.js', 'Tailwind CSS', 'Git'],
       link: '#',
       github: '#',
